@@ -1,0 +1,121 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #0f0f17;
+  color: #e5e5e5;
+  overflow-x: hidden;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Fullscreen 3D canvas */
+#bg3d {
+  image-rendering: pixelated;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+}
+
+/* Sections */
+
+
+#intro {
+  height: 200vh;
+}
+#intro .title {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#intro .title  h1 {
+  font-size: 3rem;
+  color: #7dd3fc;
+  margin-bottom: 1rem;
+}
+
+/* Projects */
+#projects {
+  opacity: 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+#projects h2 {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 2rem;
+  color: #93c5fd;
+  z-index: 10;
+  pointer-events: none; /* optional: lets clicks pass through */
+}
+
+#project-list {
+    position: relative;
+    top: 50%;
+    transform: translate(0%,-50%);
+
+    display: grid;
+    grid-template-columns: repeat(2, 75%);
+    gap: 10%;
+    height: max(100%, 35vw);             /* take full viewport height so we can center vertically */
+    width: max(20vh, 6.8vw); 
+    place-items: center;       /* center each grid item */
+    align-content: center;     /* center the whole 2x2 grid vertically */
+    justify-content: center;   /* center the whole 2x2 grid horizontally */
+    margin: 0 auto;
+}
+
+img {
+  /*box-shadow: 0 4px 12px rgba(0,0,0,0.5); */
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  transform-origin: center;
+  position: relative;
+  overflow: hidden;
+  image-rendering: pixelated;
+  height: max(20vh, 6.8vw);
+  width: max(20vh, 6.8vw);
+}
+
+
+img:hover {
+  transform: translateY(-8px) scale(1.04);
+  /*box-shadow: 0 10px 30px rgba(0,0,0,0.6);*/
+  z-index: 2;
+  cursor: pointer;
+}
+
+
+/* Slide-in panel */
+#slide-panel {
+  position: fixed;
+  top: 0vh;
+  left: -800%; /* offscreen */
+  width: max(250vh, 100%);
+  height: 100%;
+  opacity: 1;
+  z-index: 40;
+  overflow: auto;
+  background-image: url('assets\background.png');
+  background-size: cover;
+  background-position: center;
+  image-rendering: pixelated;
+}
+
