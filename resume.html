@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Matthieu Destrade</title>
+  <meta name="description" content="Matthieu Destrade — Researcher in computational neuroscience. Biography, research interests, education, and links to publications and contact." />
+  <link rel="stylesheet" href="src/style_corpo.css">
+</head>
+
+<body>
+  <!-- header styles are included in style_corpo.css; removed stray link -->
+
+<header class="site-header" role="banner">
+  <div class="brand">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <a href='index.html'><rect width="24" height="24" rx="6" fill="currentColor"></rect></a>
+    </svg>
+    <a class="brand-name" href="aboutme.html">Matthieu Destrade</a>
+  </div>
+
+  <nav class="primary-nav" aria-label="Primary navigation">
+    <a href="projects.html">Projects</a>
+    <a href="research.html">Research</a>
+    <a href="resume.html">Resume</a>
+  </nav>
+
+  <button id="theme-toggle" class="theme-toggle" aria-pressed="true" title="Toggle light / dark" aria-label="Toggle theme">🌞</button>
+</header>
+
+
+
+  <div class="container" role="main">
+    <article class="card" aria-labelledby="about-heading">
+    <div class="toolbar" role="toolbar" aria-label="PDF controls" style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
+      <div style="width:100%;display:flex;align-items:center;justify-content:space-between;">
+  <h2 id="about-heading" style="margin:0;">Resume</h2>
+
+  <div style="display:flex;gap:0.5rem;">
+    <a id="printBtn" class="btn" title="Print PDF" role="button">Print</a>
+    <a id="downloadBtn" class="btn" title="Download PDF" role="button" download="resume.pdf">Download</a>
+  </div>
+</div>
+
+      <div class="viewer" id="viewerContainer" aria-live="polite" style="width:100%;display:flex;justify-content:center;">
+        <!-- Default expects a file named "resume.pdf" next to this HTML file. -->
+         <iframe 
+          src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://matthieudestrade.github.io/src/assets/EN_resume_DESTRADE.pdf" 
+          style="aspect-ratio:1/1.414;width:100%;border:none;">
+        </iframe>
+        <!--<iframe id="pdfFrame" src="assets/EN_resume_DESTRADE.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Resume PDF" aria-label="Resume PDF" style="aspect-ratio:1/1.414;width:100%;border:0;"></iframe>-->
+      </div>
+    </div>
+    </article>
+  </div>
+  <script src="src/theme.js" defer></script>
+
+  <script>
+    (function(){
+      // Elements that exist in the markup
+      const frame = document.getElementById('pdfFrame');
+      const openNew = document.getElementById('openNew');
+      const printBtn = document.getElementById('printBtn');
+      const downloadBtn = document.getElementById('downloadBtn');
+
+      if(!frame) return; // nothing to do
+
+      // Initialize pdfURL from the iframe's src so the initial embedded PDF is used
+      let pdfURL = frame.getAttribute('src') || 'resume.pdf';
+      let isBlob = false;
+
+      function getFilenameFromURL(url){
+        try{
+          if(!url) return null;
+          const clean = url.split('#')[0].split('?')[0];
+          const parts = clean.split('/');
+          const last = parts.pop() || parts.pop();
+          return last ? decodeURIComponent(last) : null;
+        }catch(e){ return null; }
+      }
+
+      function updateFrame(){
+        try { frame.src = pdfURL; } catch(e){}
+        if(openNew) openNew.href = pdfURL;
+        const cleanURL = (pdfURL || '').split('#')[0].split('?')[0];
+        if(downloadBtn) downloadBtn.href = cleanURL || pdfURL;
+
+        if(!isBlob && downloadBtn){
+          const name = getFilenameFromURL(cleanURL);
+          downloadBtn.setAttribute('download', name || 'resume.pdf');
+        }
+      }
+
+
+      if(openNew){
+        openNew.addEventListener('click', ()=>{
+          if(!openNew.href) return;
+          openNew.setAttribute('target','_blank');
+        });
+      }
+
+      if(printBtn){
+        printBtn.addEventListener('click', ()=>{
+          try{
+            frame.contentWindow.focus();
+            frame.contentWindow.print();
+          }catch(e){
+            window.open(pdfURL, '_blank');
+          }
+        });
+      }
+
+      // initialize
+      updateFrame();
+    })();
+  </script>
+</body>
+</html>
