@@ -6,114 +6,168 @@
   <title>About — Matthieu Destrade</title>
   <meta name="description" content="Matthieu Destrade — Researcher in computational neuroscience. Biography, research interests, education, and links to publications and contact." />
   <script type="module" crossorigin src="/Website/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-  <script type="module" crossorigin src="/Website/assets/theme-BahJlDtU.js"></script>
-  <link rel="stylesheet" crossorigin href="/Website/assets/theme-Cqi7Rcvc.css">
+  <script type="module" crossorigin src="/Website/assets/theme-D8V7qd-d.js"></script>
+  <link rel="stylesheet" crossorigin href="/Website/assets/theme-BU0UitJi.css">
 </head>
 
 <body>
-  <!-- header styles are included in style_corpo.css; removed stray link -->
 
 <header class="site-header" role="banner">
   <div class="brand">
-    <svg class="logo" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <a href='index.html'><rect width="24" height="24" rx="6" fill="currentColor"></rect></a>
-    </svg>
-    <a class="brand-name" href="aboutme.html">Matthieu Destrade</a>
+      <img src="/Website/assets/logo-BdNpjcT0.png" alt="Matthieu Destrade logo" width="36" height="36">
+      <a class="brand-name" href="aboutme.html">Matthieu Destrade</a>
   </div>
 
   <nav class="primary-nav" aria-label="Primary navigation">
-    <a href="projects.html">Projects</a>
-    <a href="research.html">Research</a>
-    <a href="resume.html">Resume</a>
+    <div class="nav-content">
+      <a href="projects.html">Projects</a>
+      <a href="research.html">Research</a>
+      <a href="resume.html">Resume</a>
+      <button id="nav-toggle" class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </button>
+    </div>
   </nav>
 
-  <button id="theme-toggle" class="theme-toggle" aria-pressed="true" title="Toggle light / dark" aria-label="Toggle theme">🌞</button>
+  <button id="theme-toggle" class="theme-toggle" aria-pressed="true" title="Toggle theme">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-sun" viewBox="0 0 16 16">
+      <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/>
+    </svg>
+  </button>
 </header>
 
 
 
-  <div class="container" role="main">
-    <article class="card" aria-labelledby="about-heading">
-    <div class="toolbar" role="toolbar" aria-label="PDF controls" style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
+<div class="container" role="main">
+  <article class="card" aria-labelledby="about-heading">
+    <div class="toolbar" role="toolbar" style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
+
       <div style="width:100%;display:flex;align-items:center;justify-content:space-between;">
-  <h2 id="about-heading" style="margin:0;">Resume</h2>
+        <h2 id="about-heading" style="margin:0;">Resume</h2>
 
-  <div style="display:flex;gap:0.5rem;">
-    <a id="printBtn" class="btn" title="Print PDF" role="button">Print</a>
-    <a id="downloadBtn" class="btn" title="Download PDF" role="button" download="resume.pdf">Download</a>
-  </div>
-</div>
-
-      <div class="viewer" id="viewerContainer" aria-live="polite" style="width:100%;display:flex;justify-content:center;">
-        <!-- Default expects a file named "resume.pdf" next to this HTML file. -->
-         <iframe 
-          src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://matthieudestrade.github.io/src/assets/EN_resume_DESTRADE.pdf" 
-          style="aspect-ratio:1/1.414;width:100%;border:none;">
-        </iframe>
-        <!--<iframe id="pdfFrame" src="assets/EN_resume_DESTRADE.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Resume PDF" aria-label="Resume PDF" style="aspect-ratio:1/1.414;width:100%;border:0;"></iframe>-->
+        <div style="display:flex;gap:0.5rem;">
+          <a id="printBtn" class="btn" title="Print PDF" role="button">Print</a>
+          <a id="downloadBtn" class="btn" title="Download PDF" role="button" download="resume.pdf">Download</a>
+        </div>
       </div>
+
+
+      <!-- PDF.js NO-UI RENDERER -->
+      <div id="pdfContainer" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:2rem;"></div>
+
     </div>
-    </article>
-  </div>
+  </article>
+</div>
+
 
-  <script>
-    (function(){
-      // Elements that exist in the markup
-      const frame = document.getElementById('pdfFrame');
-      const openNew = document.getElementById('openNew');
-      const printBtn = document.getElementById('printBtn');
-      const downloadBtn = document.getElementById('downloadBtn');
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js"></script>
+<script>
+    const pdfURL =
+        "https://matthieudestrade.github.io/Website/assets/EN_resume_DESTRADE.pdf";
 
-      if(!frame) return; // nothing to do
+    const container = document.getElementById("pdfContainer");
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
 
-      // Initialize pdfURL from the iframe's src so the initial embedded PDF is used
-      let pdfURL = frame.getAttribute('src') || 'resume.pdf';
-      let isBlob = false;
+    let pdfDoc = null; // Store the loaded PDF document
+    let canvasMap = new Map(); // Store canvases and pages
 
-      function getFilenameFromURL(url){
-        try{
-          if(!url) return null;
-          const clean = url.split('#')[0].split('?')[0];
-          const parts = clean.split('/');
-          const last = parts.pop() || parts.pop();
-          return last ? decodeURIComponent(last) : null;
-        }catch(e){ return null; }
-      }
+    /**
+     * Renders a specific page to a canvas with a given scale.
+     * @param {PDFPageProxy} page - The PDF page object.
+     * @param {HTMLCanvasElement} canvas - The target canvas element.
+     * @param {number} scale - The desired scale factor.
+     */
+    function renderPage(page, canvas, scale) {
+        const viewport = page.getViewport({ scale });
+        const ctx = canvas.getContext("2d");
 
-      function updateFrame(){
-        try { frame.src = pdfURL; } catch(e){}
-        if(openNew) openNew.href = pdfURL;
-        const cleanURL = (pdfURL || '').split('#')[0].split('?')[0];
-        if(downloadBtn) downloadBtn.href = cleanURL || pdfURL;
+        // Set the internal canvas resolution (high resolution for crispness)
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
 
-        if(!isBlob && downloadBtn){
-          const name = getFilenameFromURL(cleanURL);
-          downloadBtn.setAttribute('download', name || 'resume.pdf');
+        // Set the CSS size for layout (fixed width for responsiveness)
+        // We ensure the width is 100% of the parent container for initial layout
+        canvas.style.width = "100%";
+        // Calculate the height proportionally to maintain aspect ratio
+        canvas.style.height = `${viewport.height / scale / (viewport.width / scale) * (container.clientWidth)}px`;
+        
+        // Render the page
+        page.render({
+            canvasContext: ctx,
+            viewport
+        });
+    }
+
+    /**
+     * Re-renders all pages based on the current container width.
+     */
+    function reRenderAllPages() {
+        if (!pdfDoc) return;
+
+        // Determine the target width for the PDF view (e.g., 100% of the container)
+        const targetWidth = container.clientWidth;
+        
+        // Use the first page's view to calculate the necessary scale
+        // This assumes all pages have the same initial size/aspect ratio
+        const firstPageInfo = canvasMap.keys().next().value; 
+        if (!firstPageInfo) return; // No pages loaded yet
+
+        const page = firstPageInfo.page;
+        const initialViewport = page.getViewport({ scale: 0.2 });
+        // Calculate the new scale to make the PDF fit the targetWidth
+        const newScale = targetWidth / initialViewport.width; 
+
+        // Re-render each page with the new scale
+        canvasMap.forEach((canvas, { page, pageNum }) => {
+            // Re-render the page
+            renderPage(page, canvas, newScale);
+        });
+    }
+
+    /**
+     * Initial loading and setup of the PDF.
+     */
+    pdfjsLib.getDocument(pdfURL).promise.then(pdf => {
+        pdfDoc = pdf; // Store the document reference
+        
+        for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+            pdf.getPage(pageNum).then(page => {
+                const canvas = document.createElement("canvas");
+                canvas.className = "pdf-page-canvas"; // Optional CSS class for styling
+                container.appendChild(canvas);
+
+                // Store the page and canvas
+                canvasMap.set({ page, pageNum }, canvas); 
+
+                // Initial render will happen when reRenderAllPages is called
+                // The delay ensures the DOM has settled and clientWidth is correct
+                if (pageNum === pdf.numPages) {
+                     reRenderAllPages();
+                }
+            });
         }
-      }
+    });
+
+    // --- Adapt to Zoom/Resize ---
+    // The key to fixing the blurriness on zoom/resize is to re-render the PDF with a new scale.
+
+    // Debounce function to limit re-renders
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(reRenderAllPages, 100); // Wait 100ms before re-rendering
+    });
+
+    // Buttons
+    document.getElementById("printBtn").addEventListener("click", () => {
+        window.open(pdfURL, "_blank").print();
+    });
+
+    document.getElementById("downloadBtn").href = pdfURL;
+</script>
 
 
-      if(openNew){
-        openNew.addEventListener('click', ()=>{
-          if(!openNew.href) return;
-          openNew.setAttribute('target','_blank');
-        });
-      }
-
-      if(printBtn){
-        printBtn.addEventListener('click', ()=>{
-          try{
-            frame.contentWindow.focus();
-            frame.contentWindow.print();
-          }catch(e){
-            window.open(pdfURL, '_blank');
-          }
-        });
-      }
-
-      // initialize
-      updateFrame();
-    })();
-  </script>
 </body>
 </html>

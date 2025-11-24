@@ -6,33 +6,41 @@
   <title>About — Matthieu Destrade</title>
   <meta name="description" content="Matthieu Destrade — Researcher in computational neuroscience. Biography, research interests, education, and links to publications and contact." />
   <script type="module" crossorigin src="/Website/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-  <script type="module" crossorigin src="/Website/assets/theme-BahJlDtU.js"></script>
-  <link rel="stylesheet" crossorigin href="/Website/assets/theme-Cqi7Rcvc.css">
+  <script type="module" crossorigin src="/Website/assets/theme-D8V7qd-d.js"></script>
+  <link rel="stylesheet" crossorigin href="/Website/assets/theme-BU0UitJi.css">
 </head>
 
 <body>
 
 <header class="site-header" role="banner">
   <div class="brand">
-    <svg class="logo" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <a href='/index.html'><rect width="24" height="24" rx="6" fill="currentColor"></rect></a>
-    </svg>
+    <a class="brand-logo" href="index.html" aria-label="Matthieu Destrade home">
+      <img src="/Website/assets/logo-BdNpjcT0.png" alt="Matthieu Destrade logo" width="36" height="36">
+    </a>
     <a class="brand-name" href="aboutme.html">Matthieu Destrade</a>
   </div>
 
   <nav class="primary-nav" aria-label="Primary navigation">
-    <a href="projects.html">Projects</a>
-    <a href="research.html">Research</a>
-    <a href="resume.html">Resume</a>
+    <div class = 'nav-content'>
+      <a href="projects.html">Projects</a>
+      <a href="research.html">Research</a>
+      <a href="resume.html">Resume</a>
+      <button id="nav-toggle" class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" title="Open navigation" aria-label="Open navigation">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
   </nav>
 
-  <button id="theme-toggle" class="theme-toggle" aria-pressed="true" title="Toggle light / dark" aria-label="Toggle theme">🌞</button>
+  <button id="theme-toggle" class="theme-toggle" aria-pressed="true" title="Toggle light / dark" aria-label="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-sun" viewBox="0 0 16 16" display="block"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/></svg>
+</button>
 </header>
 
 
 
   <div class="container" role="main">
-    <article class="card" aria-labelledby="about-heading">
+    <div class="card" aria-labelledby="about-heading">
       <div class="aboutme-card">
       <aside class="profile">
         <figure class="avatar">
@@ -78,7 +86,39 @@
         </footer>-->
       </main>
     </div>
-    </article>
+  </div>
   </div>
 </body>
 </html>
+
+  <script>
+    (function(){
+      const navToggle = document.getElementById('nav-toggle');
+      const primaryNav = document.querySelector('.primary-nav');
+
+      if(!navToggle || !primaryNav) return;
+
+      function closeNav(){
+        primaryNav.classList.remove('active');
+        navToggle.setAttribute('aria-expanded','false');
+      }
+
+      navToggle.addEventListener('click', function(e){
+        e.stopPropagation();
+        const isOpen = primaryNav.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', String(!!isOpen));
+        navToggle.classList.toggle('open', !!isOpen);
+      });
+
+      // prevent clicks inside the nav from closing it
+      primaryNav.addEventListener('click', function(e){ e.stopPropagation(); });
+
+      // close when clicking outside on small screens
+      document.addEventListener('click', function(e){
+        if(!primaryNav.classList.contains('active')) return;
+        if(e.target === navToggle || primaryNav.contains(e.target)) return;
+        closeNav();
+        navToggle.classList.remove('open');
+      });
+    })();
+  </script>
