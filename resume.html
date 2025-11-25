@@ -6,16 +6,18 @@
   <title>About — Matthieu Destrade</title>
   <meta name="description" content="Matthieu Destrade — Researcher in computational neuroscience. Biography, research interests, education, and links to publications and contact." />
   <script type="module" crossorigin src="/Website/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-  <script type="module" crossorigin src="/Website/assets/theme-D8V7qd-d.js"></script>
-  <link rel="stylesheet" crossorigin href="/Website/assets/theme-BU0UitJi.css">
+  <script type="module" crossorigin src="/Website/assets/theme-CI-nEkCd.js"></script>
+  <link rel="stylesheet" crossorigin href="/Website/assets/theme-smJDK6yh.css">
 </head>
 
 <body>
 
 <header class="site-header" role="banner">
   <div class="brand">
-      <img src="/Website/assets/logo-BdNpjcT0.png" alt="Matthieu Destrade logo" width="36" height="36">
-      <a class="brand-name" href="aboutme.html">Matthieu Destrade</a>
+    <a class="brand-logo" href="index.html" aria-label="Matthieu Destrade home">
+      <img src="/Website/assets/logo-C1H5zMuN.png" alt="Matthieu Destrade logo" width="36" height="36">
+    </a>
+          <a class="brand-name" href="aboutme.html">Matthieu Destrade</a>
   </div>
 
   <nav class="primary-nav" aria-label="Primary navigation">
@@ -46,7 +48,7 @@
         <h2 id="about-heading" style="margin:0;">Resume</h2>
 
         <div style="display:flex;gap:0.5rem;">
-          <a id="printBtn" class="btn" title="Print PDF" role="button">Print</a>
+          <a id="openBtn" class="btn" title="Open PDF" role="button">Open</a>
           <a id="downloadBtn" class="btn" title="Download PDF" role="button" download="resume.pdf">Download</a>
         </div>
       </div>
@@ -67,107 +69,139 @@
         "https://matthieudestrade.github.io/Website/assets/EN_resume_DESTRADE.pdf";
 
     const container = document.getElementById("pdfContainer");
-    pdfjsLib.GlobalWorkerOptions.workerSrc =
-        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
+    
 
-    let pdfDoc = null; // Store the loaded PDF document
-    let canvasMap = new Map(); // Store canvases and pages
+    let pdfDoc = null;
+    let canvasMap = new Map();
+    let resizeTimeout;
+    let lastRenderedWidth = 0; 
+    
+    const FIXED_HIGH_SCALE = 2.0; 
 
-    /**
-     * Renders a specific page to a canvas with a given scale.
-     * @param {PDFPageProxy} page - The PDF page object.
-     * @param {HTMLCanvasElement} canvas - The target canvas element.
-     * @param {number} scale - The desired scale factor.
-     */
-    function renderPage(page, canvas, scale) {
-        const viewport = page.getViewport({ scale });
+    async function renderPage(page, canvas, pageIndex, targetWidth) {
+        // 1. Get native page dimensions for aspect ratio
+        const initialViewport = page.getViewport({ scale: 1 });
+
+        const viewport = page.getViewport({ scale: FIXED_HIGH_SCALE });
         const ctx = canvas.getContext("2d");
 
-        // Set the internal canvas resolution (high resolution for crispness)
+        // 4. Set the internal canvas resolution (high-resolution pixels)
         canvas.width = viewport.width;
         canvas.height = viewport.height;
 
-        // Set the CSS size for layout (fixed width for responsiveness)
-        // We ensure the width is 100% of the parent container for initial layout
-        canvas.style.width = "100%";
-        // Calculate the height proportionally to maintain aspect ratio
-        canvas.style.height = `${viewport.height / scale / (viewport.width / scale) * (container.clientWidth)}px`;
+        // 5. Set the CSS size for layout (what the user sees)
+        canvas.style.width = targetWidth + "px"; 
+        // Maintain aspect ratio relative to the CSS width
+        canvas.style.height = `${targetWidth / initialViewport.width * initialViewport.height}px`;
         
-        // Render the page
-        page.render({
+        // 6. Manage and run the render task
+        const pageInfo = canvasMap.get(canvas);
+        if (pageInfo && pageInfo.renderTask && pageInfo.renderTask._internalRenderTask) {
+             pageInfo.renderTask._internalRenderTask.cancel(); // Cancel previous task
+        }
+
+        const renderContext = {
             canvasContext: ctx,
             viewport
-        });
-    }
-
-    /**
-     * Re-renders all pages based on the current container width.
-     */
-    function reRenderAllPages() {
-        if (!pdfDoc) return;
-
-        // Determine the target width for the PDF view (e.g., 100% of the container)
-        const targetWidth = container.clientWidth;
+        };
         
-        // Use the first page's view to calculate the necessary scale
-        // This assumes all pages have the same initial size/aspect ratio
-        const firstPageInfo = canvasMap.keys().next().value; 
-        if (!firstPageInfo) return; // No pages loaded yet
-
-        const page = firstPageInfo.page;
-        const initialViewport = page.getViewport({ scale: 0.2 });
-        // Calculate the new scale to make the PDF fit the targetWidth
-        const newScale = targetWidth / initialViewport.width; 
-
-        // Re-render each page with the new scale
-        canvasMap.forEach((canvas, { page, pageNum }) => {
-            // Re-render the page
-            renderPage(page, canvas, newScale);
-        });
+        const renderTask = page.render(renderContext);
+        canvasMap.set(canvas, { page, pageNum: pageIndex, renderTask }); 
     }
 
-    /**
-     * Initial loading and setup of the PDF.
-     */
+    function reRenderAllPages(targetWidth) {
+        // Use container.clientWidth as a fallback for the resize event where targetWidth might not be explicitly passed
+        const finalTargetWidth = targetWidth || container.clientWidth; 
+
+        if (!pdfDoc || canvasMap.size === 0 || finalTargetWidth === lastRenderedWidth) return;
+
+        console.log(`Re-rendering pages at width: ${finalTargetWidth}`);
+        
+        canvasMap.forEach((pageInfo, canvas) => {
+             renderPage(pageInfo.page, canvas, pageInfo.pageNum, finalTargetWidth);
+        });
+        
+        lastRenderedWidth = finalTargetWidth;
+    }
+
     pdfjsLib.getDocument(pdfURL).promise.then(pdf => {
-        pdfDoc = pdf; // Store the document reference
+        pdfDoc = pdf;
         
+        container.innerHTML = ''; 
+        canvasMap.clear();
+
         for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
             pdf.getPage(pageNum).then(page => {
                 const canvas = document.createElement("canvas");
-                canvas.className = "pdf-page-canvas"; // Optional CSS class for styling
+                canvas.className = "pdf-page-canvas";
+                canvas.style.borderRadius = '10px';
+                canvas.setAttribute('role', 'img');
+                canvas.setAttribute('aria-label', `PDF page ${pageNum}`);
                 container.appendChild(canvas);
+                canvasMap.set(canvas, { page, pageNum }); 
 
-                // Store the page and canvas
-                canvasMap.set({ page, pageNum }, canvas); 
-
-                // Initial render will happen when reRenderAllPages is called
-                // The delay ensures the DOM has settled and clientWidth is correct
                 if (pageNum === pdf.numPages) {
-                     reRenderAllPages();
+                    // Initial render using the container's current width
+                    reRenderAllPages(container.clientWidth);
                 }
             });
         }
+        
+        // *** FUNCTIONAL PRINT BUTTON ***
+        const openBtn = document.getElementById("openBtn");
+        if (openBtn) {
+            openBtn.addEventListener("click", () => {
+                window.open(pdfURL, "_blank");
+            });
+        }
+
+        // *** FUNCTIONAL DOWNLOAD BUTTON ***
+        const downloadBtn = document.getElementById("downloadBtn");
+        if (downloadBtn) {
+            downloadBtn.href = "https://raw.githubusercontent.com/matthieuDESTRADE/Website/c8b1e993c1a90bc6d4edaa41d78fe4ad218a8dc1/assets/EN_resume_DESTRADE.pdf";
+            
+        }
     });
 
-    // --- Adapt to Zoom/Resize ---
-    // The key to fixing the blurriness on zoom/resize is to re-render the PDF with a new scale.
-
-    // Debounce function to limit re-renders
-    let resizeTimeout;
+    // --- Adapt to Resize (Desktop/Orientation Change) ---
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(reRenderAllPages, 100); // Wait 100ms before re-rendering
+        resizeTimeout = setTimeout(() => {
+            // Re-render using the new client width
+            reRenderAllPages(container.clientWidth); 
+        }, 100);
     });
-
-    // Buttons
-    document.getElementById("printBtn").addEventListener("click", () => {
-        window.open(pdfURL, "_blank").print();
-    });
-
-    document.getElementById("downloadBtn").href = pdfURL;
 </script>
+<script>
+    (function(){
+      const navToggle = document.getElementById('nav-toggle');
+      const primaryNav = document.querySelector('.primary-nav');
 
+      if(!navToggle || !primaryNav) return;
 
+      function closeNav(){
+        primaryNav.classList.remove('active');
+        navToggle.setAttribute('aria-expanded','false');
+      }
+
+      navToggle.addEventListener('click', function(e){
+        e.stopPropagation();
+        const isOpen = primaryNav.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', String(!!isOpen));
+        navToggle.classList.toggle('open', !!isOpen);
+      });
+
+      // prevent clicks inside the nav from closing it
+      primaryNav.addEventListener('click', function(e){ e.stopPropagation(); });
+
+      // close when clicking outside on small screens
+      document.addEventListener('click', function(e){
+        if(!primaryNav.classList.contains('active')) return;
+        if(e.target === navToggle || primaryNav.contains(e.target)) return;
+        closeNav();
+        navToggle.classList.remove('open');
+      });
+    })();
+  </script>
 </body>
 </html>
