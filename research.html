@@ -3,11 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Research — Matthieu Destrade</title>
-  <meta name="description" content="Research outputs: papers, preprints and ongoing work." />
+  <title>Matthieu Destrade</title>
+  <meta name="description" content="Selected projects by Matthieu Destrade: software, simulations and interactive demos." />
+  <link rel="icon" type="image/png" href="/Website/assets/logo_web-BQ3F1TVX.png">
+  <link rel="apple-touch-icon" href="/Website/assets/logo_web-BQ3F1TVX.png">
   <script type="module" crossorigin src="/Website/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-  <script type="module" crossorigin src="/Website/assets/theme-BC_MH_cb.js"></script>
-  <link rel="stylesheet" crossorigin href="/Website/assets/theme-smJDK6yh.css">
+  <script type="module" crossorigin src="/Website/assets/theme-DdHmK5NV.js"></script>
+  <script type="module" crossorigin src="/Website/assets/cards-B3HDWlAx.js"></script>
+  <link rel="stylesheet" crossorigin href="/Website/assets/theme-bEb13VV1.css">
 </head>
 <body>
   <div class="wrap">
@@ -35,24 +38,78 @@
       <button id="theme-toggle" class="theme-toggle" aria-pressed="true" title="Toggle light / dark" aria-label="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-sun" viewBox="0 0 16 16" display="block"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/></svg>
 </button>
     </header>
-    <p class="lead">Selected papers and ongoing projects. Use this page as an index to publications and preprints.</p>
+    <p class="lead">A curated list of software, simulations and demos. Click through to see details.</p>
 
-    <section class="list" aria-label="Research publications">
-      <article class="paper">
-        <h3>Title of Recent Paper (2025)</h3>
-        <div class="meta">Journal Name — Authors: Destrade, M.; Collaborator, A.</div>
-        <div class="actions"><a href="/publications.html#paper1">Read paper</a><a href="/assets/paper1.pdf">Download PDF</a></div>
+    <section class="grid" aria-label="Projects list">
+      <!-- Cards: each card is self-contained. Add more by copying one of the blocks below. -->
+      <article class="card clickable" data-id="portfolio">
+        <div class="card__inner">
+          <div class="card__summary">
+            <h3>Portfolio Web</h3>
+            <p>Personal website showcasing projects, visuals and writing. Built with modern JS and Three.js background.</p>
+            <div class="tags"><span class="tag">Web</span><span class="tag">Three.js</span><span class="tag">Design</span></div>
+          </div>
+          <div class="card__details">
+            <h4>About this project</h4>
+            <p>This site demonstrates responsive layout, WebGL background scenes and an accessible component-driven approach. It includes project case studies, downloadable resume and interactive demos.</p>
+            <p><strong>Main tech:</strong> Vanilla JS, Three.js, HTML/CSS. Designed to be simple to replicate and extend.</p>
+            <div class="actions"><a class="btn" href="#">Read case study</a><a class="btn" href="#">Source</a></div>
+          </div>
+          <button class="card__close" aria-label="Close details">×</button>
+        </div>
       </article>
 
-      <article class="paper">
-        <h3>Another Study on Neural Models (2024)</h3>
-        <div class="meta">Conference Proceedings — Authors: Destrade, M.; Colleague, B.</div>
-        <div class="actions"><a href="/publications.html#paper2">Read paper</a></div>
+      <article class="card clickable" data-id="game">
+        <div class="card__inner">
+          <div class="card__summary">
+            <h3>2D JS Game</h3>
+            <p>An interactive browser game with procedural levels and simple physics. Great demo of gameplay loops and performance tuning.</p>
+            <div class="tags"><span class="tag">Game</span><span class="tag">Canvas</span><span class="tag">JS</span></div>
+          </div>
+          <div class="card__details" hidden>
+            <h4>About this project</h4>
+            <p>Procedural level generation, simple physics and performance-optimized rendering. Includes controller support and progressive difficulty.</p>
+            <div class="actions"><a class="btn" href="#">Play demo</a><a class="btn" href="#">Source</a></div>
+          </div>
+          <button class="card__close" aria-label="Close details">×</button>
+        </div>
+      </article>
+
+      <article class="card clickable" data-id="physics">
+        <div class="card__inner">
+          <div class="card__summary">
+            <h3>Physics Simulation</h3>
+            <p>Retro-inspired pixelized animation exploring emergent particle behavior and collisions. Uses custom physics engine.</p>
+            <div class="tags"><span class="tag">Simulation</span><span class="tag">Physics</span></div>
+          </div>
+          <div class="card__details" hidden>
+            <h4>About this project</h4>
+            <p>Small, iterative physics engine that models many-particle systems with collision response and emergent swarming behaviours. Useful as a teaching demo.</p>
+            <div class="actions"><a class="btn" href="#">Run demo</a><a class="btn" href="#">Source</a></div>
+          </div>
+          <button class="card__close" aria-label="Close details">×</button>
+        </div>
+      </article>
+
+      <article class="card clickable" data-id="react">
+        <div class="card__inner">
+          <div class="card__summary">
+            <h3>React Project</h3>
+            <p>Modern interface demo with accessibility and state-management patterns suitable for production apps.</p>
+            <div class="tags"><span class="tag">React</span><span class="tag">UI</span></div>
+          </div>
+          <div class="card__details" hidden>
+            <h4>About this project</h4>
+            <p>Component-driven layout, keyboard-first interactions and test coverage. Demonstrates patterns for scale and maintainability.</p>
+            <div class="actions"><a class="btn" href="#">Case study</a><a class="btn" href="#">Source</a></div>
+          </div>
+          <button class="card__close" aria-label="Close details">×</button>
+        </div>
       </article>
     </section>
 
-    <footer class="muted">Full publication list in <a href="/publications.html">Publications</a>.</footer>
-  </div>
+    <footer>Want a project listed or a case study? <a href="/contact.html">Contact me</a>.</footer>
+  </div>
 </body>
 </html>
 
