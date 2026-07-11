@@ -8,9 +8,9 @@
   <link rel="icon" type="image/png" href="/Website/assets/logo_web-BQ3F1TVX.png">
   <link rel="apple-touch-icon" href="/Website/assets/logo_web-BQ3F1TVX.png">
   <script type="module" crossorigin src="/Website/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-  <script type="module" crossorigin src="/Website/assets/theme-DdHmK5NV.js"></script>
-  <script type="module" crossorigin src="/Website/assets/cards-B3HDWlAx.js"></script>
-  <link rel="stylesheet" crossorigin href="/Website/assets/theme-bEb13VV1.css">
+  <script type="module" crossorigin src="/Website/assets/theme-DB_d69Yj.js"></script>
+  <script type="module" crossorigin src="/Website/assets/cards-CMs_CsJ9.js"></script>
+  <link rel="stylesheet" crossorigin href="/Website/assets/theme-DCsrZmdV.css">
 </head>
 <body>
   <div class="wrap">
@@ -45,17 +45,36 @@
       <article class="card clickable" data-id="portfolio">
         <div class="card__inner">
           <div class="card__summary">
-            <h3>Portfolio Web</h3>
-            <p>Personal website showcasing projects, visuals and writing. Built with modern JS and Three.js background.</p>
-            <div class="tags"><span class="tag">Web</span><span class="tag">Three.js</span><span class="tag">Design</span></div>
+            <h3>SUREdiff</h3>
+            <p>Uncertainty estimation and OOD detection with deep learning diffusion models and a new method based on Stein's unbiased risk estimate (SURE). Applications to MRI data and BMC estimation.</p>
           </div>
+
           <div class="card__details">
-            <h4>About this project</h4>
-            <p>This site demonstrates responsive layout, WebGL background scenes and an accessible component-driven approach. It includes project case studies, downloadable resume and interactive demos.</p>
-            <p><strong>Main tech:</strong> Vanilla JS, Three.js, HTML/CSS. Designed to be simple to replicate and extend.</p>
-            <div class="actions"><a class="btn" href="#">Read case study</a><a class="btn" href="#">Source</a></div>
+            <p>This work was conducted during a four-month research internship at the Nara Institute of Science and Technology (NAIST) and CentraleSupélec, under the supervision of professors Hugues talbot and Yoshito Otake.</p>
+            <h4>About this project  <a class="btn" href="./src/assets/SUREdiff_report.pdf" target="_blank">Read report</a></h4>
+
+            <div class="image-container">
+            <figure>
+              <img src="/Website/assets/last-D85mCzI5.png" alt="Generated teeth" width="80%" height="80%">
+              <figcaption>Generated teeth image</figcaption>
+            </figure>
+
+            <figure>
+              <img src="/Website/assets/SURElast-B5BXAKzf.png" alt="Uncertainty map" width="80%" height="80%">
+              <figcaption>SUREdiff uncertainty map</figcaption>
+            </figure>
           </div>
-          <button class="card__close" aria-label="Close details">×</button>
+
+            <p> In a number of fields, such as medicine or autonomous driving, the estimation of the uncertainty of the results of deep learning algorithms is a fundamental task to prevent harmful errors. In this internship, we aimed at evaluating medical images generated with diffusion models, and more specifically image translation. We wished to be able to detect defects in the generated image as well as in the input image based on the generation uncertainty.</p>
+            <p>To do so, we proposed a lightweight uncertainty estimation method based on the SURE estimator that is applicable to any pretrained diffusion network: SUREdiff.</p>
+            <p>In order to test the initial performance of SUREdiff, we performed several out-of-the-distribution (OOD) detection tasks inspired by a reconstruction-based approach, but where uncertainty estimation is used rather than reconstruction error. On these tasks, we obtained very promising performances.</p>
+            <p>We then focused on applying SUREdiff to image translation models and evaluating the correlation between predicted uncertainties and errors of medical measures performed using the generated images. On such tasks, we compared it with other uncertainty estimation methods. We found that SUREdiff accurately predicts the expected generation error and outperforms existing approaches such as MC Dropout and BayesDiff. However, this capability alone is not sufficient to reliably detect failures in the medical measurement estimation task.</p>
+            <p> </p>     
+            <h4>Tools</h4>
+          </div>
+          <div class="tags"><span class="tag">PyTorch</span></div>
+
+        <button class="card__close" aria-label="Close details">×</button>
         </div>
       </article>
 
