@@ -8,9 +8,9 @@
   <link rel="icon" type="image/png" href="/Website/assets/logo_web-BQ3F1TVX.png">
   <link rel="apple-touch-icon" href="/Website/assets/logo_web-BQ3F1TVX.png">
   <script type="module" crossorigin src="/Website/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-  <script type="module" crossorigin src="/Website/assets/theme-m4m2sKsN.js"></script>
+  <script type="module" crossorigin src="/Website/assets/theme-BbTKY0tn.js"></script>
   <script type="module" crossorigin src="/Website/assets/cards-CMs_CsJ9.js"></script>
-  <link rel="stylesheet" crossorigin href="/Website/assets/theme-BGqcz-3r.css">
+  <link rel="stylesheet" crossorigin href="/Website/assets/theme-tBrjAfLi.css">
 </head>
 <body>
   <div class="wrap">
@@ -74,12 +74,12 @@
 
             <div class="image-container">
             <figure>
-              <img src="/Website/assets/last-D85mCzI5.png" alt="Generated teeth" width="80%" height="80%">
+              <img src="/Website/assets/last-D85mCzI5.png" alt="Generated teeth" width="60%">
               <figcaption>Generated teeth image</figcaption>
             </figure>
 
             <figure>
-              <img src="/Website/assets/SURElast-B5BXAKzf.png" alt="Uncertainty map" width="80%" height="80%">
+              <img src="/Website/assets/SURElast-B5BXAKzf.png" alt="Uncertainty map" width="60%">
               <figcaption>SUREdiff uncertainty map</figcaption>
             </figure>
           </div>
@@ -115,7 +115,7 @@
             </figure>
 
             <figure>
-              <img src="/Website/assets/HMd-B7trNX5r.png" alt="Hierarchical model" width="80%">
+              <img src="/Website/assets/HMd-B7trNX5r.png" alt="Hierarchical model" width="90%">
               <figcaption>Hierarchical model</figcaption>
             </figure>
           </div>
@@ -153,12 +153,63 @@ planning results on our tasks.</p>
 
           <div class="card__details">
             <p>This work was conducted in March 2025 for a LLM course of the master <a href="https://www.master-mva.com/" target="_blank">MVA</a>.</p>
-            <h4>About this project  <a class="btn" href="./assets/Hierarchical LLM.pptx.pdf" target="_blank">Read report</a></h4>
+            <h4>About this project  <a class="btn" href="https://github.com/matthieuDESTRADE/latentLLM/tree/master" target="_blank">Access code</a><a class="btn" href="./assets/Hierarchical LLM.pptx.pdf" target="_blank">Read slides</a></h4>
 
+            <div class="image-container">
 
-            <p> </p>
+            <figure>
+              <img src="/Website/assets/encoding_training-Dk9Dirgz.png" alt="Encoding training diagram" width="70%"/>
+              <figcaption>Computing encodings for training</figcaption>
+            </figure>
+
+            <br>
+
+            <figure>
+              <img src="/Website/assets/predicting_training-BKctrEOw.png" alt="Predicting training diagram" width="100%"/>
+              <figcaption>Computing predictions for training</figcaption>
+            </figure>
+
+            </div>
+            <p>We investigated hierarchical representations for improving the abstraction and long-range reasoning capabilities of language models. The approach combines token-level autoregressive prediction with higher-level latent representations that summarize longer sequences and provide additional predictive context. Inspired by JEPA architectures, the model explores whether learned abstractions can complement traditional next-token prediction. Initial experiments on small-scale datasets show modest improvements over a standard GPT-style baseline, opening avenues for scaling hierarchical language modeling. </p>
             <p> </p>     
             <h4>Tools</h4>
+          </div>
+          <div class="tags"><span class="tag">PyTorch</span></div>
+
+        <button class="card__close" aria-label="Close details">×</button>
+        </div>
+      </article>
+
+      <article class="card clickable" data-id="portfolio">
+        <div class="card__inner">
+          <div class="card__summary">
+            <h3>Neural 3D Reconstruction</h3>
+            <p>Extending RayGauss, a Gaussian-based rendering framework for novel view synthesis, with physically-inspired rendering improvements (new basis functions and translucent-aware color blending). Code available at <a href="https://github.com/matthieuDESTRADE/" target="_blank">GitHub</a>.</p>
+          </div>
+
+          <div class="card__details">
+            <p>This work was conducted in March 2025 for a 3D point clouds course of the master <a href="https://www.master-mva.com/" target="_blank">MVA</a>, in collaboration with Nour Rizk.</p>
+            <h4>About this project  <a class="btn" href="./assets/NP3DM_report.pdf" target="_blank">Read report</a><a class="btn" href="https://github.com/matthieuDESTRADE/" target="_blank">Access code !ADD!</a></h4>
+
+            <div class="image-container">
+
+            <figure>
+              <img src="/Website/assets/lego1-DGIwmkcL.png" alt="Lego reconstruction front" width="70%"/>
+            </figure>
+
+
+            <figure>
+              <img src="/Website/assets/lego2-ylyC9HUJ.png" alt="Lego reconstruction back" width="70%"/>
+            </figure>
+              <figcaption>Reconstructed lego set</figcaption>
+              <br>
+
+            </div>
+            <p> This project explored photorealistic novel view synthesis, a key problem in computer vision and computer graphics that aims to generate unseen viewpoints of a 3D scene from a limited set of images. We studied and implement <a href='https://raygauss.github.io/' target="_blank">RayGauss</a>, a recent approach combining the flexibility of Gaussian-based scene representations with the physical accuracy of volumetric ray casting, overcoming limitations of methods such as Neural Radiance Fields (NeRF) and 3D Gaussian Splatting.</p>   
+
+<p> Beyond reproducing the original method, we investigated improvements to the rendering pipeline by introducing new view-dependent basis functions inspired by classical Phong illumination models and a modified color blending strategy designed to better handle translucent materials. These extensions aimed to improve the physical consistency of light transport and enhance the representation of complex visual effects.</p>   
+
+<p>Experiments on the Blender dataset showed that our modifications can slightly improve reconstruction quality, demonstrating their potential. Larger-scale experiments could further validate their effectiveness.</p>            <h4>Tools</h4>
           </div>
           <div class="tags"><span class="tag">PyTorch</span></div>
 
