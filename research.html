@@ -46,7 +46,7 @@
         <strong>Matthieu Destrade</strong>,  Oumayma Bounou, Quentin Le Lidec, Jean Ponce,Yann LeCun.
         <em>"Value-guided action planning with JEPA world models"</em>
         presented as a <a href="JEPA_and_value_functions_Workshop.pdf" target="_blank">poster</a> at WMW2026, 2026.
-        <a href="https://arxiv.org/abs/2601.00844">arXiv</a>
+        <a href="https://arxiv.org/abs/2601.00844" target="_blank">arXiv</a>
       </li>
 
       <li>
@@ -184,12 +184,12 @@ planning results on our tasks.</p>
         <div class="card__inner">
           <div class="card__summary">
             <h3>Neural 3D Reconstruction</h3>
-            <p>Extending RayGauss, a Gaussian-based rendering framework for novel view synthesis, with physically-inspired rendering improvements (new basis functions and translucent-aware color blending). Code available at <a href="https://github.com/matthieuDESTRADE/" target="_blank">GitHub</a>.</p>
+            <p>Extending RayGauss, a Gaussian-based rendering framework for novel view synthesis, with physically-inspired rendering improvements (new basis functions and translucent-aware color blending). Code available at <a href="https://github.com/matthieuDESTRADE/RayGauss-extension/tree/main" target="_blank">GitHub</a>.</p>
           </div>
 
           <div class="card__details">
             <p>This work was conducted in March 2025 for a 3D point clouds course of the master <a href="https://www.master-mva.com/" target="_blank">MVA</a>, in collaboration with Nour Rizk.</p>
-            <h4>About this project  <a class="btn" href="./assets/NP3DM_report.pdf" target="_blank">Read report</a><a class="btn" href="https://github.com/matthieuDESTRADE/" target="_blank">Access code !ADD!</a></h4>
+            <h4>About this project  <a class="btn" href="./assets/NP3DM_report.pdf" target="_blank">Read report</a><a class="btn" href="https://github.com/matthieuDESTRADE/RayGauss-extension/tree/main" target="_blank">Access code</a></h4>
 
             <div class="image-container">
 
@@ -201,8 +201,9 @@ planning results on our tasks.</p>
             <figure>
               <img src="/Website/assets/lego2-ylyC9HUJ.png" alt="Lego reconstruction back" width="70%"/>
             </figure>
+            <br>
               <figcaption>Reconstructed lego set</figcaption>
-              <br>
+              
 
             </div>
             <p> This project explored photorealistic novel view synthesis, a key problem in computer vision and computer graphics that aims to generate unseen viewpoints of a 3D scene from a limited set of images. We studied and implement <a href='https://raygauss.github.io/' target="_blank">RayGauss</a>, a recent approach combining the flexibility of Gaussian-based scene representations with the physical accuracy of volumetric ray casting, overcoming limitations of methods such as Neural Radiance Fields (NeRF) and 3D Gaussian Splatting.</p>   
@@ -211,10 +212,75 @@ planning results on our tasks.</p>
 
 <p>Experiments on the Blender dataset showed that our modifications can slightly improve reconstruction quality, demonstrating their potential. Larger-scale experiments could further validate their effectiveness.</p>            <h4>Tools</h4>
           </div>
-          <div class="tags"><span class="tag">PyTorch</span></div>
+          <div class="tags"><span class="tag">CUDA</span><span class="tag">PyTorch</span></div>
 
         <button class="card__close" aria-label="Close details">×</button>
         </div>
+      </article>
+
+      <article class="card clickable" data-id="portfolio">
+<div class="card__inner">
+  <div class="card__summary">
+    <h3>Missing Data imputation</h3>
+    <p>
+      Extension of NOT-MIWAE, a deep generative model designed 
+      for Missing Not At Random (MNAR) data imputation, using an additional latent variable to better model complex missingness 
+      mechanisms. Code available at 
+      <a href="https://github.com/matthieuDESTRADE/notMIWAE-latent" target="_blank">GitHub</a>.
+    </p>
+  </div>
+
+  <div class="card__details">
+    <p>
+      This project was conducted in December 2024 for a probabilistic graphical model course of the master <a href="https://www.master-mva.com/" target="_blank">MVA</a>, in collaboration with Félix Houdouin.
+    </p>
+
+    <h4>
+      About this project
+      <a class="btn" href="./assets/notMIWAE_report.pdf" target="_blank">Read report</a>
+      <a class="btn" href="https://github.com/matthieuDESTRADE/notMIWAE-latent" target="_blank">Access code</a>
+    </h4>
+
+    <div class="image-container">
+      <figure>
+        <img src="/Website/assets/graph_model-FQFsq4ms.png" alt="Latent NOT-MIWAE graphical model" width="50%"/>
+        <figcaption>
+          Graphical representation of the extended NOT-MIWAE model.
+        </figcaption>
+      </figure>
+    </div>
+
+    <p>
+      Handling missing data is a fundamental challenge in statistical learning, particularly when the missingness mechanism deviates from standard assumptions such as Missing Completely At Random (MCAR) or Missing At Random (MAR). In this project, we studied the NOT-MIWAE framework, a deep generative approach designed to address the more general and realistic Missing Not At Random (MNAR) setting. 
+The model uses a 
+      variational inference approach to reconstruct missing values while explicitly 
+      modeling the probability of observing each feature.
+    </p>
+
+
+    <p>
+      We proposed an extension introducing 
+      an additional latent variable dedicated to the missingness process. This 
+      modification aims at relaxing the independence assumptions made by the original 
+      model and improving performance in more complex MNAR settings.
+    </p>
+
+    <p>
+      Experiments were conducted on a modified UCI white wine dataset with synthetic 
+      MNAR missingness patterns. The proposed extension improved reconstruction 
+      performance compared with standard NOT-MIWAE variants in settings where the 
+      original assumptions were violated.
+    </p>
+
+    <h4>Tools</h4>
+  </div>
+
+  <div class="tags">
+    <span class="tag">TensorFlow</span>
+  </div>
+
+  <button class="card__close" aria-label="Close details">×</button>
+</div>
       </article>
 
     </section>
