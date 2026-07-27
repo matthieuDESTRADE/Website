@@ -38,77 +38,360 @@
       <button id="theme-toggle" class="theme-toggle" aria-pressed="true" title="Toggle light / dark" aria-label="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-sun" viewBox="0 0 16 16" display="block"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/></svg>
 </button>
     </header>
-    <p class="lead">A curated list of software, simulations and demos. Click through to see details.</p>
+    <p class="lead">Here are presented various projects and creations. Please click on the cards for additional information.</p>
+
+    <h2>Coding projects</h2>
+
+      <section class="grid" aria-label="Projects list">
+      <!-- Cards: each card is self-contained. Add more by copying one of the blocks below. -->
+
+<article class="card clickable" data-id="dashcam">
+<div class="card__inner">
+  <div class="card__summary">
+    <h3>Distance & speed estimation from car dashcam videos</h3>
+    <p>
+      A computer vision pipeline estimating the distance and relative speed 
+      of surrounding vehicles from dashcam videos, combining YOLO-based 
+      vehicle detection, vanishing point estimation with RANSAC, and license 
+      plate detection for distance calibration. Code available at 
+      <a href="https://github.com/pe712/car-speed-estimation/tree/master" target="_blank">GitHub</a>.
+    </p>
+  </div>
+ 
+  <div class="card__details">
+    <p>
+      This project was conducted in December 2023 for a computer vision course at <a href="https://www.polytechnique.edu/" target="_blank">École Polytechnique</a>, 
+      in collaboration with Pierre-Emmanuel Bavière.
+    </p>
+ 
+    <h4>
+      About this project
+      <a class="btn" href="./assets/Distance_estimation_car_report.pdf" target="_blank">Read report</a>
+      <a class="btn" href="https://github.com/pe712/car-speed-estimation/tree/master" target="_blank">Access code</a>
+    </h4>
+ 
+    <div class="image-container">
+      <figure>
+        <img src="/Website/assets/example_car-NdfSDGqL.png" alt="Vehicle detection with vanishing point and license plate on a dashcam frame" width="50%"/>
+        <figcaption>
+          Example frame with detected vehicle, vanishing point, and license plate used for distance calibration.
+        </figcaption>
+      </figure>
+    </div>
+ 
+    <p>
+      Autonomous vehicles typically rely on radar or LiDAR to estimate distances to surrounding 
+      objects. We explored whether a single traditional dashcam, placed in an arbitrary but 
+      roughly road-aligned position, could provide a similar estimate on its own. Our approach 
+      relies on three stages: detecting vehicles in the video with YOLO, locating the road's 
+      vanishing point, and calibrating absolute distances through license plate detection.
+    </p>
+ 
+    <p>
+      The vanishing point is estimated by extracting road and building lines with OpenCV's 
+      Hough transform, then robustly finding their common intersection with a RANSAC procedure 
+      that discards non-converging outlier lines (traffic signs, tree branches, other vehicles). 
+      This vanishing point, combined with a single reference distance, is enough to convert a 
+      vehicle's vertical position in the frame into a real-world distance along the camera's 
+      view axis.
+    </p>
+ 
+    <p>
+      To obtain that reference distance, we detect license plates 
+      with a YOLO model fine-tuned for this task, then refine their contours with OpenCV to 
+      recover their pixel width. Since real license plates have a known, standardized size, this 
+      gives an absolute distance estimate for any vehicle whose plate is visible. Averaging and 
+      outlier rejection across frames stabilize the resulting distance and speed estimates on video.
+    </p>
+ 
+    <h4>Tools</h4>
+  </div>
+ 
+  <div class="tags">
+    <span class="tag">Python</span>
+    <span class="tag">OpenCV</span>
+  </div>
+ 
+  <button class="card__close" aria-label="Close details">×</button>
+</div>
+</article>
+
+<article class="card clickable" data-id="driving-rl">
+<div class="card__inner">
+  <div class="card__summary">
+    <h3>Reinforcement Learning with a driving game</h3>
+    <p>
+      An agent trained end-to-end from raw pixels to learn 
+      to steer a car on a custom 2D driving game with randomly generated track. Code available at 
+      <a href="https://github.com/matthieuDESTRADE/CarRL" target="_blank">GitHub</a>.
+    </p>
+  </div>
+ 
+  <div class="card__details">
+    <p>
+      This project was conducted in March 2024 for an autonomous agents course at <a href="https://www.polytechnique.edu/" target="_blank">École Polytechnique</a>, 
+      in collaboration with Pierre-Emmanuel Bavière, Hugo Aoyagi, and Raphaël Manus.
+    </p>
+ 
+    <h4>
+      About this project
+      <a class="btn" href="./assets/RL_race_report.pdf" target="_blank">Read report</a>
+      <a class="btn" href="https://github.com/matthieuDESTRADE/CarRL" target="_blank">Access code</a>
+    </h4>
+ 
+    <div class="image-container">
+      <figure>
+        <img src="/Website/assets/race-V7bR2q-w.png" alt="Frame of the racing game with the car on a randomly generated road" width="30%"/>
+        <figcaption>
+          A frame of the racing game
+        </figcaption>
+      </figure>
+    </div>
+ 
+    <p>
+      We built a simple driving game in which a car must stay on a randomly generated road, 
+      wrapped it as a <code>gymnasium</code> environment, and trained agents to play it using only 
+      the same visual information a human player would have: a downsized, color-simplified 
+      40x40 frame. This pushed us toward deep convolutional Q-learning to 
+      extract useful features directly from pixels.
+    </p>
+ 
+    <p>
+      Our deep Q-network combines a replay buffer and a target network to stabilize training, following the classic 
+      DQN recipe. We found that frame-skipping, applying each chosen action over several frames, 
+      was key to early training, and progressively fine-tuning a model from a large 
+      frame-skip down to a single frame produced by far our most stable and efficient agent.
+    </p>
+ 
+    <p>
+      We also probed the trained convolutional filters through activation maximization, and found channels that 
+      had specifically learned to respond to the car's colors and to the road's edges.
+    </p>
+ 
+    <h4>Tools</h4>
+  </div>
+ 
+  <div class="tags">
+    <span class="tag">PyTorch</span>
+    <span class="tag">Gymnasium</span>
+  </div>
+ 
+  <button class="card__close" aria-label="Close details">×</button>
+</div>
+</article>
+
+<article class="card clickable" data-id="van-gogh-3d">
+<div class="card__inner">
+  <div class="card__summary">
+    <h3>3D reconstruction of Van Gogh's Church at Auvers-sur-Oise</h3>
+    <p>
+      An OpenGL scene bringing Van Gogh's painting to life in 3D, using a 
+      cloth-like physical simulation to animate the sky, ground, and grass along with a hierarchically 
+      animated character. Code available at 
+      <a href="https://github.com/matthieuDESTRADE/vangogh-scene" target="_blank">GitHub</a>.
+    </p>
+  </div>
+ 
+  <div class="card__details">
+    <p>
+      This project was conducted in June 2023 for a computer graphics course at 
+      <a href="https://www.polytechnique.edu/" target="_blank">École Polytechnique</a>, 
+      in collaboration with Julien Genzling.
+    </p>
+ 
+    <h4>
+      About this project
+      <a class="btn" href="./assets/INF443_report.pdf" target="_blank">Read report</a>
+      <a class="btn" href="https://github.com/matthieuDESTRADE/vangogh-scene" target="_blank">Access code</a>
+    </h4>
+ 
+    <div class="image-container">
+      <figure>
+        <img src="./src/assets/vangogh_3d_scene.png" alt="3D reconstruction of Van Gogh's Church at Auvers-sur-Oise" width="60%"/>
+        <figcaption>
+          Our 3D scene
+        </figcaption>
+      </figure>
+    </div>
+ 
+    <p>
+      We set out to recreate Van Gogh's <em>Church at Auvers-sur-Oise</em> as a 3D scene, 
+      capturing the sense of motion that define the original 
+      painting. The scene is framed inside a unit cube, rendered as a "3D painting" using stencil 
+      and depth buffers so that elements are only visible through the frame, while still letting 
+      the camera move inside it.
+    </p>
+ 
+    <p>
+      The sky, ground, and grass are all composed of numerous 2D meshes driven by a cloth-like physical model, animated by noise. 
+      The path flows like a stream along a spline built from a handful of control points.
+    </p>
+ 
+    <p>
+      The church and houses were modelled in Blender and hand-painted in Procreate, then given a 
+      dedicated shader that applies a time-dependent deformation for a 
+      "twisted" look. The church's shadow is reproduced in the grass and path by 
+      recoloring fragments inside an affine region. The woman is animated as a layered character: a forward-kinematics 
+      mesh hierarchy following the path, dressed in a simulated cylindrical cloth skirt kept from 
+      clipping through the legs by a repulsive potential.
+    </p>
+ 
+    <h4>Tools</h4>
+  </div>
+ 
+  <div class="tags">
+    <span class="tag">OpenGL</span>
+    <span class="tag">Blender</span>
+  </div>
+ 
+  <button class="card__close" aria-label="Close details">×</button>
+</div>
+</article>
+ 
+
+    </section>
+
+    <h2>Video Games</h2>
 
     <section class="grid" aria-label="Projects list">
       <!-- Cards: each card is self-contained. Add more by copying one of the blocks below. -->
+
+
       <article class="card clickable" data-id="portfolio">
         <div class="card__inner">
           <div class="card__summary">
-            <h3>Portfolio Web</h3>
-            <p>Personal website showcasing projects, visuals and writing. Built with modern JS and Three.js background.</p>
-            <div class="tags"><span class="tag">Web</span><span class="tag">Three.js</span><span class="tag">Design</span></div>
+            <h3>MIROIR</h3>
+            <p>
+              Top-down adventure video game featuring spell casting and a dragon. Can you solve the mysteries ? Available at 
+              <a href="https://miroir.itch.io/le-miroir" target="_blank">itch.io</a>.
+            </p>
           </div>
+
           <div class="card__details">
-            <h4>About this project</h4>
-            <p>This site demonstrates responsive layout, WebGL background scenes and an accessible component-driven approach. It includes project case studies, downloadable resume and interactive demos.</p>
-            <p><strong>Main tech:</strong> Vanilla JS, Three.js, HTML/CSS. Designed to be simple to replicate and extend.</p>
-            <div class="actions"><a class="btn" href="#">Read case study</a><a class="btn" href="#">Source</a></div>
+            <p>
+              This project was conducted in 2023 for a video game course at <a href="https://www.polytechnique.edu/" target="_blank">École Polytechnique</a>, in collaboration with Clément Tyminski--Pereira and Thomas Dagonneau.
+            </p>
+
+            <h4>
+              About this project
+              <a class="btn" href="https://miroir.itch.io/le-miroir" target="_blank">Play game</a>
+            </h4>
+
+            <div class="image-container">
+              <figure>
+                <img src="/Website/assets/game-C651-lHw.png" alt="Game screenshot" width="90%"/>
+
+              </figure>
+                          <figure>
+              <img src="/Website/assets/game2-BenHlzOv.png"  alt="Game screenshot (dragon)" width="90%">
+            </figure>
+            <br>
+                          <figure>
+              <img src="/Website/assets/game3-D7cWwKO9.png"  alt="Game screenshot" width="90%">
+            </figure>
+                          <figure>
+              <img src="/Website/assets/game4-CP5Vca0J.png"  alt="Game screenshot" width="90%">
+            </figure>
+            <br>
+                        <figcaption>
+            Game screenshots
+          </figcaption>
+            </div>
+
+            <h4>Tools</h4>
           </div>
+
+          <div class="tags">
+            <span class="tag">Unity (C#)</span>
+          </div>
+
           <button class="card__close" aria-label="Close details">×</button>
         </div>
       </article>
 
-      <article class="card clickable" data-id="game">
+            <article class="card clickable" data-id="portfolio">
         <div class="card__inner">
           <div class="card__summary">
-            <h3>2D JS Game</h3>
-            <p>An interactive browser game with procedural levels and simple physics. Great demo of gameplay loops and performance tuning.</p>
-            <div class="tags"><span class="tag">Game</span><span class="tag">Canvas</span><span class="tag">JS</span></div>
+            <h3>GAMINGO</h3>
+            <p>
+              Top-down adventure video game. Can you solve the mysteries ? Available at 
+              <a href="https://gamingo.itch.io/gamingo" target="_blank">itch.io</a>.
+            </p>
           </div>
-          <div class="card__details" hidden>
-            <h4>About this project</h4>
-            <p>Procedural level generation, simple physics and performance-optimized rendering. Includes controller support and progressive difficulty.</p>
-            <div class="actions"><a class="btn" href="#">Play demo</a><a class="btn" href="#">Source</a></div>
+
+          <div class="card__details">
+            <p>
+              This project was conducted in December 2024 for a probabilistic graphical model course of the master <a href="https://www.master-mva.com/" target="_blank">MVA</a>, in collaboration with Félix Houdouin.
+            </p>
+
+            <h4>
+              About this project
+              <a class="btn" href="./assets/notMIWAE_report.pdf" target="_blank">Read report</a>
+              <a class="btn" href="https://github.com/matthieuDESTRADE/notMIWAE-latent" target="_blank">Access code</a>
+            </h4>
+
+            <div class="image-container">
+              <figure>
+                <img src="/Website/assets/graph_model-FQFsq4ms.png" alt="Latent NOT-MIWAE graphical model" width="50%"/>
+                <figcaption>
+                  Graphical representation of the extended NOT-MIWAE model.
+                </figcaption>
+              </figure>
+            </div>
+
+            <p>
+              Handling missing data is a fundamental challenge in statistical learning, particularly when the missingness mechanism deviates from standard assumptions such as Missing Completely At Random (MCAR) or Missing At Random (MAR). In this project, we studied the NOT-MIWAE framework, a deep generative approach designed to address the more general and realistic Missing Not At Random (MNAR) setting. 
+        The model uses a 
+              variational inference approach to reconstruct missing values while explicitly 
+              modeling the probability of observing each feature.
+            </p>
+
+
+            <p>
+              We proposed an extension introducing 
+              an additional latent variable dedicated to the missingness process. This 
+              modification aims at relaxing the independence assumptions made by the original 
+              model and improving performance in more complex MNAR settings.
+            </p>
+
+            <p>
+              Experiments were conducted on a modified UCI white wine dataset with synthetic 
+              MNAR missingness patterns. The proposed extension improved reconstruction 
+              performance compared with standard NOT-MIWAE variants in settings where the 
+              original assumptions were violated.
+            </p>
+
+            <h4>Tools</h4>
           </div>
+
+          <div class="tags">
+            <span class="tag">TensorFlow</span>
+          </div>
+
           <button class="card__close" aria-label="Close details">×</button>
         </div>
       </article>
 
-      <article class="card clickable" data-id="physics">
-        <div class="card__inner">
-          <div class="card__summary">
-            <h3>Physics Simulation</h3>
-            <p>Retro-inspired pixelized animation exploring emergent particle behavior and collisions. Uses custom physics engine.</p>
-            <div class="tags"><span class="tag">Simulation</span><span class="tag">Physics</span></div>
-          </div>
-          <div class="card__details" hidden>
-            <h4>About this project</h4>
-            <p>Small, iterative physics engine that models many-particle systems with collision response and emergent swarming behaviours. Useful as a teaching demo.</p>
-            <div class="actions"><a class="btn" href="#">Run demo</a><a class="btn" href="#">Source</a></div>
-          </div>
-          <button class="card__close" aria-label="Close details">×</button>
-        </div>
-      </article>
-
-      <article class="card clickable" data-id="react">
-        <div class="card__inner">
-          <div class="card__summary">
-            <h3>React Project</h3>
-            <p>Modern interface demo with accessibility and state-management patterns suitable for production apps.</p>
-            <div class="tags"><span class="tag">React</span><span class="tag">UI</span></div>
-          </div>
-          <div class="card__details" hidden>
-            <h4>About this project</h4>
-            <p>Component-driven layout, keyboard-first interactions and test coverage. Demonstrates patterns for scale and maintainability.</p>
-            <div class="actions"><a class="btn" href="#">Case study</a><a class="btn" href="#">Source</a></div>
-          </div>
-          <button class="card__close" aria-label="Close details">×</button>
-        </div>
-      </article>
     </section>
 
-    <footer>Want a project listed or a case study? <a href="/contact.html">Contact me</a>.</footer>
+    <h2>Studies</h2>
+
+    <h2>3D Modeling and animations</h2>
+
+    <h2>Infographics</h2>
+
+
+    <h2>Musics</h2>
+
+
+
+
+
+    <h2>Projects</h2>
+
+
+
+
   </div>
 </body>
 </html>
