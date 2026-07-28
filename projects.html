@@ -183,12 +183,12 @@
 <article class="card clickable" data-id="van-gogh-3d">
 <div class="card__inner">
   <div class="card__summary">
-    <h3>3D reconstruction of Van Gogh's Church at Auvers-sur-Oise</h3>
+    <h3>3D reconstruction of Van Gogh's <em>Church at Auvers-sur-Oise</em></h3>
     <p>
       An OpenGL scene bringing Van Gogh's painting to life in 3D, using a 
       cloth-like physical simulation to animate the sky, ground, and grass along with a hierarchically 
       animated character. Code available at 
-      <a href="https://github.com/matthieuDESTRADE/vangogh-scene" target="_blank">GitHub</a>.
+      <a href="https://github.com/matthieuDESTRADE/3D-painting" target="_blank">GitHub</a>.
     </p>
   </div>
  
@@ -201,17 +201,29 @@
  
     <h4>
       About this project
-      <a class="btn" href="./assets/INF443_report.pdf" target="_blank">Read report</a>
-      <a class="btn" href="https://github.com/matthieuDESTRADE/vangogh-scene" target="_blank">Access code</a>
+      <a class="btn" href="./assets/van_gogh_report.pdf" target="_blank">Read report</a>
+      <a class="btn" href="https://github.com/matthieuDESTRADE/3D-painting" target="_blank">Access code</a>
     </h4>
  
     <div class="image-container">
       <figure>
-        <img src="/Website/assets/vangogh-CJ1-Yss4.png" alt="3D reconstruction of Van Gogh's Church at Auvers-sur-Oise" width="40%"/>
+        <img src="/Website/assets/vangogh-CJ1-Yss4.png" alt="3D reconstruction of Van Gogh's Church at Auvers-sur-Oise screenshot" width="55%"/>
         <figcaption>
           Screenshot of the 3D scene
         </figcaption>
+    </figure>
+
+
+    
+      <figure>
+    <video width=98% controls>
+  <source src="/Website/assets/c__project-_hK0N-F-.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>        <figcaption>
+          Video of the 3D scene and its settings
+        </figcaption>
       </figure>
+  
     </div>
  
     <p>
@@ -240,6 +252,7 @@
   </div>
  
   <div class="tags">
+    <span class="tag">C++</span>
     <span class="tag">OpenGL</span>
     <span class="tag">Blender</span>
   </div>
@@ -247,7 +260,117 @@
   <button class="card__close" aria-label="Close details">×</button>
 </div>
 </article>
+
+<article class="card clickable" data-id="pace-challenge">
+<div class="card__inner">
+  <div class="card__summary">
+    <h3>PACE challenge 2024</h3>
+    <p>
+      Heuristics for the one-sided crossing minimization problem: ordering the 
+      bottom vertices of a bipartite graph to minimize edge crossings, using 
+      median-based and greedy insertion algorithms. Code available at 
+      <a href="https://github.com/matthieuDESTRADE/PACE-challenge-2024" target="_blank">GitHub</a>.
+    </p>
+  </div>
  
+  <div class="card__details">
+    <p>
+      This project was conducted in March 2024 for an algorithmic geometry course at 
+      <a href="https://www.polytechnique.edu/" target="_blank">École Polytechnique</a>, 
+      in collaboration with Thomas Dagonneau.
+    </p>
+ 
+    <h4>
+      About this project
+      <a class="btn" href="./assets/PACE_report.pdf" target="_blank">Read report</a>
+      <a class="btn" href="https://github.com/matthieuDESTRADE/PACE-challenge-2024" target="_blank">Access code</a>
+    </h4>
+ 
+    <div class="image-container">
+      <figure>
+        <img src="/Website/assets/PACE-DKoMPBwS.png" alt="Example of a one-sided crossing minimization problem" width="40%"/>
+        <figcaption>
+          Example of a one-sided crossing minimization (OCM) instance.
+        </figcaption>
+      </figure>
+    </div>
+ 
+    <p>
+      We tackled the PACE 2024 challenge on minimizing edge crossings in a two-layered drawing 
+      of a bipartite graph, an NP-complete problem. After building tools to generate random 
+      graphs and compute exact solutions by brute force on small instances, we designed a fast 
+      median-based heuristic and a more precise greedy algorithm that inserts vertices one by 
+      one at their locally optimal position. The greedy method consistently outperformed the 
+      median heuristic, at a higher but still practical computational cost.
+    </p>
+ 
+    <h4>Tools</h4>
+  </div>
+ 
+  <div class="tags">
+    <span class="tag">Java</span>
+  </div>
+ 
+  <button class="card__close" aria-label="Close details">×</button>
+</div>
+</article>
+ <article class="card clickable" data-id="title-generation">
+<div class="card__inner">
+  <div class="card__summary">
+    <h3>French news title generation</h3>
+    <p>
+      A Kaggle challenge on generating titles for French press articles, which involved
+      comparing pretrained French summarization models, text-reduction 
+      strategies, and fine-tuning to maximize ROUGE-L scores. Code available at 
+      <a href="https://github.com/matthieuDESTRADE/Kaggle-Titles-NLP" target="_blank">GitHub</a>.
+    </p>
+  </div>
+
+  <div class="card__details">
+    <p>
+      This project was conducted in March 2024 for an NLP course at 
+      <a href="https://www.polytechnique.edu/" target="_blank">École Polytechnique</a>, 
+      in collaboration with Charles-Edouard Rouault.
+    </p>
+
+    <h4>
+      About this project
+      <a class="btn" href="./assets/NLP_report.pdf" target="_blank">Read report</a>
+      <a class="btn" href="https://github.com/matthieuDESTRADE/Kaggle-Titles-NLP" target="_blank">Access code</a>
+    </h4>
+
+    <p>
+      The challenge consisted in generating the title of French press articles from their texts, 
+      scored against the real title with the ROUGE-L F1-score. After analyzing the dataset, 
+      we found it too small to train a model from scratch, which pointed us toward fine-tuning existing French summarization models 
+      such as BARThez and CamemBERT2CamemBERT.
+    </p>
+
+    <p>
+      We benchmarked several pretrained French summarization 
+      models and tackled their limited input length with text-reduction strategies: splitting 
+      and re-concatenating summaries, and an extractive preprocessing step based on 
+      sentence-similarity, both promising on individual examples but not on the dataset as a whole.
+    </p>
+
+    <p>
+      Fine-tuning proved the most effective lever. We discovered that our best baseline model, 
+      barthez-orangesum-abstract, had in fact already been trained on the challenge's underlying 
+      dataset, leaving little room for improvement, while fine-tuning 
+      camembert2camembert-shared-finetuned-french-summarization on our training set noticeably 
+      improved its ROUGE-L score.
+    </p>
+
+    <h4>Tools</h4>
+  </div>
+
+  <div class="tags">
+    <span class="tag">PyTorch</span>
+  </div>
+
+  <button class="card__close" aria-label="Close details">×</button>
+</div>
+</article>
 
     </section>
 
@@ -308,70 +431,57 @@
           <button class="card__close" aria-label="Close details">×</button>
         </div>
       </article>
-
-            <article class="card clickable" data-id="portfolio">
+<article class="card clickable" data-id="portfolio">
         <div class="card__inner">
           <div class="card__summary">
-            <h3>GAMINGO</h3>
+            <h3>GAMING'O</h3>
             <p>
-              Top-down adventure video game. Can you solve the mysteries ? Available at 
-              <a href="https://gamingo.itch.io/gamingo" target="_blank">itch.io</a>.
+              Low-poly orienteering simulator, featuring procedural terrain and map generation. Can you find all beacons ? Available at 
+              <a href="https://matthieud.itch.io/gamingo" target="_blank">itch.io</a>.
             </p>
           </div>
 
           <div class="card__details">
             <p>
-              This project was conducted in December 2024 for a probabilistic graphical model course of the master <a href="https://www.master-mva.com/" target="_blank">MVA</a>, in collaboration with Félix Houdouin.
+              This project was conducted in July 2024.
             </p>
 
             <h4>
               About this project
-              <a class="btn" href="./assets/notMIWAE_report.pdf" target="_blank">Read report</a>
-              <a class="btn" href="https://github.com/matthieuDESTRADE/notMIWAE-latent" target="_blank">Access code</a>
+              <a class="btn" href="https://matthieud.itch.io/gamingo" target="_blank">Play game</a>
             </h4>
 
             <div class="image-container">
               <figure>
-                <img src="/Website/assets/graph_model-FQFsq4ms.png" alt="Latent NOT-MIWAE graphical model" width="50%"/>
-                <figcaption>
-                  Graphical representation of the extended NOT-MIWAE model.
-                </figcaption>
+                <img src="/Website/assets/co1-yZje7Zrb.png" alt="Game screenshot" width="90%"/>
+
               </figure>
+                          <figure>
+              <img src="/Website/assets/co2-nfVk-go2.png"  alt="Game screenshot" width="90%">
+            </figure>
+            <br>
+                          <figure>
+              <img src="/Website/assets/co3-BalOJJsS.png"  alt="Game screenshot" width="90%">
+            </figure>
+                          <figure>
+              <img src="/Website/assets/co4-BYXtU2OL.png"  alt="Game screenshot" width="90%">
+            </figure>
+            <br>
+                        <figcaption>
+            Game screenshots
+          </figcaption>
             </div>
-
-            <p>
-              Handling missing data is a fundamental challenge in statistical learning, particularly when the missingness mechanism deviates from standard assumptions such as Missing Completely At Random (MCAR) or Missing At Random (MAR). In this project, we studied the NOT-MIWAE framework, a deep generative approach designed to address the more general and realistic Missing Not At Random (MNAR) setting. 
-        The model uses a 
-              variational inference approach to reconstruct missing values while explicitly 
-              modeling the probability of observing each feature.
-            </p>
-
-
-            <p>
-              We proposed an extension introducing 
-              an additional latent variable dedicated to the missingness process. This 
-              modification aims at relaxing the independence assumptions made by the original 
-              model and improving performance in more complex MNAR settings.
-            </p>
-
-            <p>
-              Experiments were conducted on a modified UCI white wine dataset with synthetic 
-              MNAR missingness patterns. The proposed extension improved reconstruction 
-              performance compared with standard NOT-MIWAE variants in settings where the 
-              original assumptions were violated.
-            </p>
 
             <h4>Tools</h4>
           </div>
 
           <div class="tags">
-            <span class="tag">TensorFlow</span>
+            <span class="tag">Unity (C#)</span>
           </div>
 
           <button class="card__close" aria-label="Close details">×</button>
         </div>
       </article>
-
     </section>
 
     <h2>Studies</h2>
@@ -384,10 +494,6 @@
     <h2>Musics</h2>
 
 
-
-
-
-    <h2>Projects</h2>
 
 
 
