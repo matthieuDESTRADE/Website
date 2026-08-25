@@ -7,10 +7,12 @@
   <meta name="description" content="Selected projects by Matthieu Destrade: software, simulations and interactive demos." />
   <link rel="icon" type="image/png" href="/Website/assets/logo_web-BQ3F1TVX.png">
   <link rel="apple-touch-icon" href="/Website/assets/logo_web-BQ3F1TVX.png">
-  <script type="module" crossorigin src="/Website/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-  <script type="module" crossorigin src="/Website/assets/theme-BbTKY0tn.js"></script>
-  <script type="module" crossorigin src="/Website/assets/cards-CMs_CsJ9.js"></script>
-  <link rel="stylesheet" crossorigin href="/Website/assets/theme-tBrjAfLi.css">
+  <script type="module" crossorigin src="/Website/assets/projects-BIbc9V56.js"></script>
+  <link rel="modulepreload" crossorigin href="/Website/assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="modulepreload" crossorigin href="/Website/assets/theme-BzQikflB.js">
+  <link rel="modulepreload" crossorigin href="/Website/assets/cards-BSQMGjA_.js">
+  <link rel="modulepreload" crossorigin href="/Website/assets/script-CKzo5Vs8.js">
+  <link rel="stylesheet" crossorigin href="/Website/assets/theme-DGlQ14xT.css">
 </head>
 <body>
   <div class="wrap">
@@ -40,9 +42,12 @@
     </header>
     <p class="lead">Here are presented various projects and creations. Please click on the cards for additional information.</p>
 
-    <h2>Coding projects</h2>
+    <h2>
+      Coding projects
+      <button class="section-toggle" aria-expanded="true" aria-controls="coding-projects" title="Toggle section">+</button>
+    </h2>
 
-      <section class="grid" aria-label="Projects list">
+      <section id="coding-projects" class="grid" aria-label="Projects list">
       <!-- Cards: each card is self-contained. Add more by copying one of the blocks below. -->
 
 <article class="card clickable" data-id="dashcam">
@@ -51,9 +56,9 @@
     <h3>Distance & speed estimation from car dashcam videos</h3>
     <p>
       A computer vision pipeline estimating the distance and relative speed 
-      of surrounding vehicles from dashcam videos, combining YOLO-based 
+      of cars from dashcam videos, combining YOLO-based 
       vehicle detection, vanishing point estimation with RANSAC, and license 
-      plate detection for distance calibration. Code available at 
+      plate detection. Code available at 
       <a href="https://github.com/pe712/car-speed-estimation/tree/master" target="_blank">GitHub</a>.
     </p>
   </div>
@@ -374,9 +379,12 @@ Your browser does not support the video tag.
 
     </section>
 
-    <h2>Video Games</h2>
+    <h2>
+      Video Games
+      <button class="section-toggle" aria-expanded="true" aria-controls="video-games" title="Toggle section">+</button>
+    </h2>
 
-    <section class="grid" aria-label="Projects list">
+    <section id="video-games" class="grid" aria-label="Projects list">
       <!-- Cards: each card is self-contained. Add more by copying one of the blocks below. -->
 
 
@@ -484,23 +492,135 @@ Your browser does not support the video tag.
       </article>
     </section>
 
-    <h2>Studies</h2>
+    <h2>
+      Studies
+      <button class="section-toggle" aria-expanded="true" aria-controls="studies" title="Toggle section">+</button>
+    </h2>
 
-    <h2>3D Modeling and animations</h2>
+    <section id="studies" class="grid" aria-label="Studies list">
 
-    <h2>Infographics</h2>
+    <article class="card clickable" data-id="llm-cities-policy">
+<div class="card__inner">
+  <div class="card__summary">
+    <h3>French cities facing large language models</h3>
+    <p>
+      A qualitative study, based on seventeen interviews with French cities and 
+      intermunicipal bodies, on how large language models are being deployed in 
+      local public administrations and the organizational tensions this raises.
+    </p>
+  </div>
+
+  <div class="card__details">
+    <p>
+      This project was conducted during the 2025-2026 academic year for the <a href="https://ecoledesponts.fr/formation-continue/mastere-specialise/actions-publiques-developpement-durable" target="_blank">PAPDD master</a>, in collaboration with Tigrane Boccara Kebadian, Ségolène Grouale, 
+      and Mohammed-Yassine Habibi, supervised by professor Gilles Jeannot (LATTS, ENPC).
+    </p>
+
+    <h4>
+      About this project
+      <a class="btn" href="./assets/IA_villes_française_rapport.pdf" target="_blank">Read report (French)</a>
+    </h4>
+
+        <div class="image-container">
+      <figure>
+        <img src="/Website/assets/french_citites-Dej8zEoH.png" alt="Map of interviewed cities " width="30%"/>
+        <figcaption>
+          Map of the interviewed cities
+        </figcaption>
+      </figure>
+    </div>
+ 
+
+    <p>
+      We combined an analytical questionnaire with semi-structured interviews targeting both 
+      general services directors and IT directors across 17 local authorities (12 metropolitan 
+      areas, 5 smaller cities or intermunicipal bodies) already engaged with AI, to understand how 
+      LLM tools were being governed within their organizations.
+    </p>
+
+    <p>
+      We found that LLM tools have spread to every city surveyed, mostly through a "wait-and-see 
+      continuity" around Microsoft Copilot, a "cautious curiosity" toward sovereign French tools 
+      such as Délibia, or more exploratory experimentation, while usage itself remains largely 
+      confined to an "augmented agent" model: assisting with drafting, research, or verification 
+      under systematic human supervision, rather than autonomous decision-making or direct 
+      interaction with citizens.
+    </p>
+
+    <p>
+      This organizational continuity, however, leaves several emerging risks under-addressed: 
+      data security and sovereignty, uneven impacts on public-sector jobs, and an environmental 
+      footprint that remains largely unmeasured. We argue that a genuine organizational shift is 
+      needed, and propose a set of recommendations covering risk-controlled innovation, 
+      pre-deployment strategic evaluation, transversal internal governance, and inter-municipal 
+      cooperation to pool resources and reduce dependence on private providers.
+    </p>
+
+  <button class="card__close" aria-label="Close details">×</button>
+</div>
+
+</article>
+
+    </section>
+
+    <h2>
+      3D Modeling and animations
+      <button class="section-toggle" aria-expanded="false" aria-controls="modeling-3d" title="Toggle section">+</button>
+    </h2>
+    <section id="modeling-3d" class="grid" aria-label="3D modeling list"></section>
+
+    <h2>
+      Infographics
+      <button class="section-toggle" aria-expanded="false" aria-controls="infographics" title="Toggle section">+</button>
+    </h2>
+    <section id="infographics" class="grid" aria-label="Infographics list">
+      
+      
+      <article class="card clickable img" data-id="raiddelx">
+              <img src="/Website/assets/raiddelxaffichenew-Dg2NOdwb.png" alt="Raid de l'X affiche"/>
+          <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+      
+      <article class="card clickable img" data-id="space drawing">
+              <img src="/Website/assets/spacedraw-Do-WHT-_.png" alt="Space"/>
+          <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+      <article class="card clickable img" data-id="croquis cubes">
+          <img src="/Website/assets/croquis_cubes-CK4HFAaN.JPG" alt="croquis cubes"/>
+          <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+            <article class="card clickable img" data-id="croquis paysage">
+          <img src="/Website/assets/croquis_paysage-C1zCRuUv.JPG" alt="croquis paysage"/>
+          <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+      <article class="card clickable img" data-id="xbroadway">
+              <img src="/Website/assets/broadway-gaavYDpU.png" alt="X Broadway affiche"/>
+          <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+            <article class="card clickable img" data-id="raiddelx2">
+              <img src="/Website/assets/raiddelxaffiche2-DILMmcFG.png" alt="Raid de l'X affiche 2"/>
+          <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+    </section>
+
+    <h2>
+      Musics
+      <button class="section-toggle" aria-expanded="false" aria-controls="musics" title="Toggle section">+</button>
+    </h2>
+    <section id="musics" class="grid" aria-label="Musics list"></section>
 
 
-    <h2>Musics</h2>
 
 
 
 
-
-
-  </div>
-</body>
-</html>
+  </div>
 
   <script>
     (function(){
@@ -533,3 +653,5 @@ Your browser does not support the video tag.
       });
     })();
   </script>
+</body>
+</html>
