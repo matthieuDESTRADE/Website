@@ -7,11 +7,11 @@
   <meta name="description" content="Selected projects by Matthieu Destrade: software, simulations and interactive demos." />
   <link rel="icon" type="image/png" href="/Website/assets/logo_web-BQ3F1TVX.png">
   <link rel="apple-touch-icon" href="/Website/assets/logo_web-BQ3F1TVX.png">
-  <script type="module" crossorigin src="/Website/assets/projects-QIikFzaH.js"></script>
+  <script type="module" crossorigin src="/Website/assets/projects-Dfxxbnrn.js"></script>
   <link rel="modulepreload" crossorigin href="/Website/assets/modulepreload-polyfill-B5Qt9EMX.js">
-  <link rel="modulepreload" crossorigin href="/Website/assets/theme-BzQikflB.js">
-  <link rel="modulepreload" crossorigin href="/Website/assets/cards-BSQMGjA_.js">
-  <link rel="stylesheet" crossorigin href="/Website/assets/theme-DGlQ14xT.css">
+  <link rel="modulepreload" crossorigin href="/Website/assets/theme-B6kc64Uy.js">
+  <link rel="modulepreload" crossorigin href="/Website/assets/cards-W0yUrCWm.js">
+  <link rel="stylesheet" crossorigin href="/Website/assets/theme-BUXWoPSp.css">
 </head>
 <body>
   <div class="wrap">
@@ -46,7 +46,7 @@
       <button class="section-toggle" aria-expanded="true" aria-controls="coding-projects" title="Toggle section">+</button>
     </h2>
 
-      <section id="coding-projects" class="grid" aria-label="Projects list">
+      <section id="coding-projects" class="grid" data-row-pattern="3" aria-label="Projects list">
       <!-- Cards: each card is self-contained. Add more by copying one of the blocks below. -->
 
 <article class="card clickable" data-id="dashcam">
@@ -216,14 +216,17 @@
           Screenshot of the 3D scene
         </figcaption>
     </figure>
-
-
     
-      <figure>
-    <video width=98% controls>
-  <source src="/Website/assets/c__project-_hK0N-F-.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>        <figcaption>
+      <figure padding="0px">
+        <div class="video-wrapper">
+    <iframe     
+    src="https://www.youtube.com/embed/CassX05ng70?autoplay=1&mute=1&loop=1&playlist=CassX05ng70&controls=0&modestbranding=1&rel=0&playsinline=1"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+</iframe>        
+<a class="video-overlay" href="https://www.youtube.com/embed/CassX05ng70" target="_blank"></a>
+</div><figcaption>
           Video of the 3D scene and its settings
         </figcaption>
       </figure>
@@ -407,26 +410,23 @@ Your browser does not support the video tag.
               <a class="btn" href="https://miroir.itch.io/le-miroir" target="_blank">Play game</a>
             </h4>
 
+            <figure class="game-gallery">
             <div class="image-container">
               <figure>
                 <img src="/Website/assets/game-C651-lHw.png" alt="Game screenshot" width="90%"/>
-
               </figure>
-                          <figure>
+              <figure>
               <img src="/Website/assets/game2-BenHlzOv.png"  alt="Game screenshot (dragon)" width="90%">
             </figure>
-            <br>
-                          <figure>
+            <figure>
               <img src="/Website/assets/game3-D7cWwKO9.png"  alt="Game screenshot" width="90%">
             </figure>
-                          <figure>
+            <figure>
               <img src="/Website/assets/game4-CP5Vca0J.png"  alt="Game screenshot" width="90%">
             </figure>
-            <br>
-                        <figcaption>
-            Game screenshots
-          </figcaption>
             </div>
+            <figcaption>Game screenshots</figcaption>
+            </figure>
 
             <h4>Tools</h4>
           </div>
@@ -458,26 +458,23 @@ Your browser does not support the video tag.
               <a class="btn" href="https://matthieud.itch.io/gamingo" target="_blank">Play game</a>
             </h4>
 
+            <figure class="game-gallery">
             <div class="image-container">
               <figure>
                 <img src="/Website/assets/co1-yZje7Zrb.png" alt="Game screenshot" width="90%"/>
-
               </figure>
-                          <figure>
+              <figure>
               <img src="/Website/assets/co2-nfVk-go2.png"  alt="Game screenshot" width="90%">
             </figure>
-            <br>
-                          <figure>
+            <figure>
               <img src="/Website/assets/co3-BalOJJsS.png"  alt="Game screenshot" width="90%">
             </figure>
-                          <figure>
+            <figure>
               <img src="/Website/assets/co4-BYXtU2OL.png"  alt="Game screenshot" width="90%">
             </figure>
-            <br>
-                        <figcaption>
-            Game screenshots
-          </figcaption>
             </div>
+            <figcaption>Game screenshots</figcaption>
+            </figure>
 
             <h4>Tools</h4>
           </div>
@@ -563,27 +560,128 @@ Your browser does not support the video tag.
     </section>
 
     <h2>
-      3D Modeling and animations
+      3D Modeling and animations (blender)
       <button class="section-toggle" aria-expanded="false" aria-controls="modeling-3d" title="Toggle section">+</button>
     </h2>
-    <section id="modeling-3d" class="grid" aria-label="3D modeling list"></section>
+    <section class="grid"  data-row-pattern="1,3,1,3,2,1,3" id="modeling-3d" aria-label="3D modeling list">
+
+      <article class="card" data-id="courtine">
+    <iframe     
+    src="https://www.youtube.com/embed/Vqx3HLLwZWA?modestbranding=1&rel=0&playsinline=1"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+</iframe> 
+        <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+
+      <article class="card clickable img" data-id="courtine aerial">
+        <img src="/Website/assets/courtine1-BfNGKcZO.png" alt="Courtine aerial view"/>
+        <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+      <article class="card clickable img" data-id="courtine roof">
+        <img src="/Website/assets/courtine2-X-wom5Pl.png" alt="Courtine pack"/>
+        <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+      <article class="card clickable img" data-id="courtine fire">
+        <img src="/Website/assets/courtine3-BA7tWVAw.png" alt="Courtine ceremony"/>
+        <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+
+            <article class="card" data-id="projfévrier">
+    <iframe     
+    src="https://www.youtube.com/embed/wlva9anJfWM?modestbranding=1&rel=0&playsinline=1"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+</iframe> 
+        <button class="card__close" aria-label="Close details">×</button>
+      </article>
+    
+          <article class="card clickable img" data-id="2D forest">
+        <img src="/Website/assets/2D1-C8fHnsCM.png" alt="2D forest"/>
+        <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+      <article class="card clickable img" data-id="2D night">
+        <img src="/Website/assets/2D2-CGTap9Sh.png" alt="2D night"/>
+        <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+      <article class="card clickable img" data-id="2D car">
+        <img src="/Website/assets/2D3-uTiBOFGK.png" alt="Car in the snow"/>
+        <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+
+
+        <article class="card clickable img" data-id="Low poly">
+        <img src="/Website/assets/LP1--8CVO5Ht.png" alt="Low poly biker"/>
+        <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+      <article class="card clickable img" data-id="Desert">
+        <img src="/Website/assets/desert1-dXK2FODk.png" alt="Helicopter in the desert"/>
+        <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+
+                  <article class="card" data-id="projfévrier">
+          <iframe   
+    src="https://www.youtube.com/embed/vP_gw73G9Uk?modestbranding=1&rel=0&playsinline=1"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe> 
+              <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+
+            <article class="card clickable img" data-id="Gaulois village aerial">
+        <img src="/Website/assets/armo-lJTF1CnS.png" alt="Gaulois village aerial"/>
+        <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+        <article class="card clickable img" data-id="Greek temple">
+        <img src="/Website/assets/pikes-Cy8jfsH7.png" alt="Greek temple"/>
+        <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+      <article class="card clickable img" data-id="Gaulois village inside">
+        <img src="/Website/assets/armo2-CnY4IWTr.png" alt="Gaulois village inside"/>
+        <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+    </section>
+
+
+
 
     <h2>
       Infographics
       <button class="section-toggle" aria-expanded="false" aria-controls="infographics" title="Toggle section">+</button>
     </h2>
-    <section id="infographics" class="grid" aria-label="Infographics list">
+    <section id="infographics" class="grid img" aria-label="Infographics list">
       
       
       <article class="card clickable img" data-id="raiddelx">
-              <img src="/Website/assets/raiddelxaffichenew-Dg2NOdwb.png" alt="Raid de l'X affiche"/>
-          <button class="card__close" aria-label="Close details">×</button>
+        <img src="/Website/assets/raiddelxaffichenew-Dg2NOdwb.png" alt="Raid de l'X affiche"/>
+        <button class="card__close" aria-label="Close details">×</button>
+      </article>
+
+      <article class="card clickable img" data-id="xbroadway">
+        <img src="/Website/assets/broadway-gaavYDpU.png" alt="X Broadway affiche"/>
+        <button class="card__close" aria-label="Close details">×</button>
       </article>
 
       
       <article class="card clickable img" data-id="space drawing">
-              <img src="/Website/assets/spacedraw-Do-WHT-_.png" alt="Space"/>
-          <button class="card__close" aria-label="Close details">×</button>
+        <img src="/Website/assets/spacedraw-Do-WHT-_.png" alt="Space"/>
+        <button class="card__close" aria-label="Close details">×</button>
       </article>
 
       <article class="card clickable img" data-id="croquis cubes">
@@ -591,19 +689,14 @@ Your browser does not support the video tag.
           <button class="card__close" aria-label="Close details">×</button>
       </article>
 
-            <article class="card clickable img" data-id="croquis paysage">
+      <article class="card clickable img" data-id="croquis paysage">
           <img src="/Website/assets/croquis_paysage-C1zCRuUv.JPG" alt="croquis paysage"/>
           <button class="card__close" aria-label="Close details">×</button>
       </article>
 
-      <article class="card clickable img" data-id="xbroadway">
-              <img src="/Website/assets/broadway-gaavYDpU.png" alt="X Broadway affiche"/>
-          <button class="card__close" aria-label="Close details">×</button>
-      </article>
-
-            <article class="card clickable img" data-id="raiddelx2">
-              <img src="/Website/assets/raiddelxaffiche2-DILMmcFG.png" alt="Raid de l'X affiche 2"/>
-          <button class="card__close" aria-label="Close details">×</button>
+      <article class="card clickable img" data-id="raiddelx2">
+        <img src="/Website/assets/raiddelxaffiche2-DILMmcFG.png" alt="Raid de l'X affiche 2"/>
+        <button class="card__close" aria-label="Close details">×</button>
       </article>
 
     </section>
@@ -612,7 +705,9 @@ Your browser does not support the video tag.
       Musics
       <button class="section-toggle" aria-expanded="false" aria-controls="musics" title="Toggle section">+</button>
     </h2>
-    <section id="musics" class="grid" aria-label="Musics list"></section>
+    <section id="musics" class="grid" aria-label="Musics list">
+      Coming soon !
+    </section>
 
 
 
